@@ -12,6 +12,7 @@ $ vagrant provision
 ```
 1. migration
 ```sh
+$ go get github.com/tools/godep
 $ goose up
 ```
 1. setup cookie  
