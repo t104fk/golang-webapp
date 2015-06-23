@@ -1,0 +1,5 @@
+Godeps/_workspace
+Godeps/Readme
+.idea
+*.iml
+.vagrant

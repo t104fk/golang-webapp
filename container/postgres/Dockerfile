@@ -1,0 +1,5 @@
+FROM postgres:9.4.1
+MAINTAINER takasing
+ENV POSTGRES_DB toyo
+ENV POSTGRES_USER takasing
+ENV POSTGRES_PASSWORD oifwslu4SGcBiMzL
