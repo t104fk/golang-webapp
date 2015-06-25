@@ -3,3 +3,5 @@ Godeps/Readme
 .idea
 *.iml
 .vagrant
+aws_access_token.tfvars
+terraform/terraform.tfstate*

@@ -1,0 +1,37 @@
+{
+      "family": "golang-webapp",
+      "containerDefinitions": [
+      {
+              "name": "nginx",
+              "image": "takasing104/nginx:0.0.1",
+              "cpu": 256,
+              "memory": 100,
+              "links": ["golang-webapp:api"],
+              "portMappings": [{
+                      "containerPort": 80,
+                      "hostPort": 80
+              }],
+              "essential": true
+      }, {
+              "name": "golang-webapp",
+              "image": "takasing104/golang-webapp:0.0.1",
+              "cpu": 256,
+              "memory": 100,
+              "links": ["postgres:db"],
+              "portMappings": [{
+                      "containerPort": 3000,
+                      "hostPort": 3000
+              }],
+              "essential": true
+      }, {
+              "name": "postgres",
+              "image": "takasing104/postgres:0.0.1",
+              "cpu": 512,
+              "memory": 200,
+              "portMappings": [{
+                      "containerPort": 5432,
+                      "hostPort": 5432
+              }],
+              "essential": true
+      }]
+}

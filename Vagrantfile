@@ -18,28 +18,28 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     cfg.vm.network :private_network, ip: "172.17.11.101"
     cfg.vm.synced_folder ".", SHARED_DIR, id: "core", :nfs => true, :mount_options => ['nolock,vers=3,udp']
     cfg.vm.provision "postgres", type: "docker" do |d|
-      d.build_image "#{SHARED_DIR}/container/postgres", args: "-t takasing/postgres:0.0.1"
+      d.build_image "#{SHARED_DIR}/container/postgres", args: "-t takasing104/postgres:0.0.1"
       d.run "postgres",
-        image: "takasing/postgres:0.0.1",
+        image: "takasing104/postgres:0.0.1",
         args: "-p 5432:5432",
         auto_assign_name: true,
         daemonize: true
     end
 
-    cfg.vm.provision "stop-container", type: "shell", inline: "docker rm -f golang-webapp nginx"
+    #cfg.vm.provision "stop-container", type: "shell", inline: "docker rm -f golang-webapp nginx"
 
     cfg.vm.provision "golang", type: "docker" do |d|
-      d.build_image "#{SHARED_DIR}", args: "-t takasing/golang-webapp:0.0.1"
+      d.build_image "#{SHARED_DIR}", args: "-t takasing104/golang-webapp:0.0.1"
       d.run "golang-webapp",
-        image: "takasing/golang-webapp:0.0.1",
+        image: "takasing104/golang-webapp:0.0.1",
         args: "-p 3000:3000 --link postgres:db",
         auto_assign_name: true,
         daemonize: true
     end
     cfg.vm.provision "nginx", type: "docker" do |d|
-      d.build_image "#{SHARED_DIR}/container/nginx", args: "-t takasing/nginx:0.0.1"
+      d.build_image "#{SHARED_DIR}/container/nginx", args: "-t takasing104/nginx:0.0.1"
       d.run "nginx",
-        image: "takasing/nginx:0.0.1",
+        image: "takasing104/nginx:0.0.1",
         args: "-p 80:80 --link golang-webapp:api",
         auto_assign_name: true,
         daemonize: true
