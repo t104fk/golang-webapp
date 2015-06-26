@@ -5,6 +5,7 @@ import (
 	"golang-webapp/config"
 	"golang-webapp/db"
 	"os"
+	"golang-webapp/sandbox"
 )
 
 func main() {
@@ -15,6 +16,8 @@ func main() {
 	kingpin.MustParse(app.Parse(os.Args[1:]))
 	db.InitDb()
 	router := routes.Init()
+
+	sandbox.Sandbox()
 
 	router.Run(":3000")
 }
