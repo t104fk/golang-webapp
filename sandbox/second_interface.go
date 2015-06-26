@@ -13,6 +13,6 @@ func (s *Second) SetString(text string) {
 	s.text = text
 }
 
-func count(sand Sand) {
+func second(sand Sand) {
 	log.Print(sand.GetString())
 }

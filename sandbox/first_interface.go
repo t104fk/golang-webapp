@@ -10,16 +10,16 @@ type First struct {
 	text string
 }
 
-func (b *First) GetString() string {
-	return b.text
+func (f *First) GetString() string {
+	return f.text
 }
 
-func (b *First) SetString(text string) {
-	b.text = text
+func (f *First) SetString(text string) {
+	f.text = text
 }
 
-func play() {
-	box := &First{}
-	box.SetString("pan!")
-	log.Print(box.GetString())
+func first() {
+	first := &First{}
+	first.SetString("pan!")
+	log.Print(first.GetString())
 }
