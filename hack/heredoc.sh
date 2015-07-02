@@ -1,0 +1,7 @@
+HEREDOC=`cat << EOS
+HERE
+HOGE
+DOCS
+EOS
+`
+export HEREDOC
