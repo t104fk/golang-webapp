@@ -1,11 +1,13 @@
 package main
+
 import (
-	"golang-webapp/routes"
-	"gopkg.in/alecthomas/kingpin.v2"
 	"golang-webapp/config"
 	"golang-webapp/db"
-	"os"
+	"golang-webapp/routes"
 	"golang-webapp/sandbox"
+	"os"
+
+	"gopkg.in/alecthomas/kingpin.v2"
 )
 
 func main() {

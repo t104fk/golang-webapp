@@ -1,14 +1,18 @@
 package private
+
 import "log"
 
-type private struct {
+// Private is
+type Private struct {
 	Name string
 }
 
-func (p *private) shout() {
+// shout is
+func (p *Private) shout() {
 	log.Print(p.Name)
 }
 
+// Grobal is
 func Grobal(s string) {
 	log.Print(s)
 }

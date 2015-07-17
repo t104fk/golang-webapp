@@ -1,21 +1,25 @@
 package sandbox
+
 import (
-	"log"
 	"golang-webapp/sandbox/codegangsta/cli"
-	"runtime"
 	"golang-webapp/sandbox/private"
+	"log"
+	"runtime"
 )
 
+// Sandbox is
 func Sandbox() {
-//	interface_test()
-	cli_test()
-	path_test()
-	scope_test()
+	interfaceTest()
+	cliTest()
+	pathTest()
+	scopeTest()
+	namedExec()
 }
 
-func interface_test() {
+// interface_test is
+func interfaceTest() {
 	first()
-//	sandbox.count(&sandbox.Second{}) // compile error
+	//	sandbox.count(&sandbox.Second{}) // compile error
 	second(&Second{})
 	third(&Third{
 		First{},
@@ -28,15 +32,15 @@ func interface_test() {
 	log.Print(fourth_type(&Implemented{}))
 }
 
-func cli_test() {
+func cliTest() {
 	cli.Start()
 }
 
-func path_test() {
+func pathTest() {
 	log.Print(runtime.GOROOT())
 }
 
-func scope_test() {
+func scopeTest() {
 	private.Grobal("scope")
 	p := &private.Private{}
 	log.Print(p)
